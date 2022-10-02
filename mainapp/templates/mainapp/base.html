@@ -1,7 +1,7 @@
+{% load static %}
+
 <!doctype html>
 <html lang="ru">
-
-{% load static %}
 
 <head>
     <!-- Required meta tags -->
@@ -17,7 +17,11 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href='{% static "css/fontawesome.all.min.css" %}'>
 
-    <title>Welcome to Braniac!</title>
+    <title>
+        {% block title %}
+        Welcome to Braniac!
+        {% endblock title %}
+    </title>
 </head>
 
 <body>
