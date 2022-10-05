@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "markdownify.apps.MarkdownifyConfig",
+    "social_django",
     "mainapp",
+    "authapp",
 ]
 
 MIDDLEWARE = [
@@ -64,6 +66,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                #"mainapp.context_processors.example.simple_context_processor",
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
         },
     },
@@ -102,6 +107,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTH_USER_MODEL = "authapp.CustomUser"
+AUTHENTICATION_BACKENDS = (
+    "social_core.backends.github.GithubOAuth2",
+    "django.contrib.auth.backends.ModelBackend",
+)
+
+LOGIN_REDIRECT_URL = "mainapp:main"
+LOGOUT_REDIRECT_URL = "mainapp:main"
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -124,3 +138,13 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Media files
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+
+# OAuth
+SOCIAL_AUTH_GITHUB_KEY = "296099378048e909adc6"
+SOCIAL_AUTH_GITHUB_SECRET = "6f4870f02f07f31f50121b17c33c72daed21ad8d"
