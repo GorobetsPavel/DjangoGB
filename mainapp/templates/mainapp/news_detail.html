@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 
 {% block title %}
-{{ news_obj.title|default:"Новости" }}
+{{ object.title|default:"Новости" }}
 {% endblock title %}
 
 {% block content %}
+
+{% include 'components/main_menu.html' %}
+
 <div class="row justify-content-center pt-3">
     <div class="col-md-12 col-lg-8">
         <div class="card shadow">
             <div class="card-body">
-                <h5 class="card-title">{{ news_obj.title }}</h5>
+                <h5 class="card-title">{{ object.title }}</h5>
                 <p class="card-text">
-                    {{ news_obj.body }}
+                    {{ object.body }}
                 </p>
                 <a href="{% url 'mainapp:news' %}"
                     class="btn btn-primary">Назад</a>
@@ -19,4 +22,7 @@
         </div>
     </div>
 </div>
+
+{% include 'components/footer.html' %}
+
 {% endblock content %}
