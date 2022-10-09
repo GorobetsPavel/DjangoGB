@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
-{% load email_to_link %}
+{% load email_to_link crispy_forms_tags %}
 
 {% block content %}
 
+    {% include 'components/messages.html' %}
     {% include 'components/top_nav_panel.html' %}
 
     <div class="container-md">
@@ -92,10 +93,21 @@
 </div>
 </p>
 
+</div>
 
+{% load email_to_link crispy_forms_tags %}
 
-    </div>
+{% if form %}
+<p>
+<h3>Отправить сообщение в техподдержку</h3>
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <button type="submit" class="btn btn-primary btn-block">Отправить</button>
+</form>
+</p>
+{% endif %}
 
-    {% include 'components/footer.html' %}
+{% include 'components/footer.html' %}
 
 {% endblock content %}
