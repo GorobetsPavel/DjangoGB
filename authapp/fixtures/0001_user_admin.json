@@ -1,0 +1,22 @@
+[
+  {
+    "model": "authapp.customuser",
+    "pk": 1,
+    "fields": {
+      "password": "geekbrains",
+      "last_login": "2022-10-12T10:17:21.253Z",
+      "is_superuser": true,
+      "username": "django",
+      "first_name": "",
+      "last_name": "",
+      "age": null,
+      "avatar": "",
+      "email": "admin@local.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-10-07T11:21:07.133Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
