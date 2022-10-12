@@ -10,6 +10,7 @@ from mainapp.apps import MainappConfig
 
 urlpatterns = [
     path("", RedirectView.as_view(url='mainapp/')),
+    path("i18n/", include("django.conf.urls.i18n")),
     path("admin/", admin.site.urls),
     path("mainapp/", include("mainapp.urls", namespace=MainappConfig.name)),
     path("authapp/", include("authapp.urls", namespace="authapp")),

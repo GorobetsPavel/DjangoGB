@@ -27,7 +27,7 @@ class MainPageView(TemplateView):
 
 class NewsListView(ListView):
     model = mainapp_models.News
-    paginate_by = 15
+    paginate_by = 3
 
     def get_queryset(self):
         return super().get_queryset().filter(deleted=False)

@@ -16,7 +16,7 @@ urlpatterns = [
     path("news/<int:pk>/delete", views.NewsDeleteView.as_view(), name="news_delete",),
     path(
         "courses/",
-        cache_page(60 * 5)(views.CoursesListView.as_view()),  # 5 minutes
+        (views.CoursesListView.as_view()),  # 5 minutes
         name="courses",
     ),
     path("courses/<int:pk>/", views.CoursesDetailView.as_view(), name="courses_detail",),
