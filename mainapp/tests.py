@@ -4,7 +4,7 @@ from authapp.models import CustomUser
 
 from django.test import TestCase, Client
 from django.urls import reverse
-from django.core import mail as django_mail
+from django.core import mail as django_mailз
 
 from mainapp.models import News
 from mainapp import tasks as mainapp_tasks
